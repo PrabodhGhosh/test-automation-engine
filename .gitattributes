@@ -1,0 +1,2 @@
+# Tell GitHub to ignore certain files for language detection
+*.html linguist-vendored
