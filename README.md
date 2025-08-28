@@ -1,9 +1,3 @@
-Congratulations\! Pushing your code to GitHub is a major milestone.
-
-Now for a proper `README.md`. A good README is like a professional cover letter and user manual rolled into one. It should tell visitors what your framework is, how to use it, and what technologies it uses.
-
-Here's a template you can use. Copy this into your `README.md` file and fill in the details.
-
 -----
 
 # Test Automation Engine
