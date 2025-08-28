@@ -28,7 +28,6 @@ This repository contains a robust, scalable, and maintainable test automation fr
   * **Cross-Browser Support:** Execute tests on multiple browsers including Chrome, Firefox, and Edge.
   * **Parallel Execution:** Configurable parallel execution of tests to reduce run time.
   * **Advanced Reporting:** Generates comprehensive and interactive **Extent Reports** with test case details, screenshots, and logs.
-  * **Retry Mechanism:** Automatically retries failed test cases for improved stability and reduced flakiness.
   * **CI/CD Integration:** Ready for integration with Jenkins, GitHub Actions, or other CI tools.
 
 ## Technologies
@@ -103,10 +102,3 @@ Feel free to open issues or submit pull requests. All contributions are welcome.
 Prabodh Ghosh - `ghosh.prabodh@gmail.com`
 
 -----
-
-## License
-
-This project is licensed under the MIT License - see the `LICENSE` file for details.
-
-This video [explains what a `README.md` file is](https://www.google.com/search?q=%5Bhttps://www.youtube.com/watch%3Fv%3DacZHXGAZHls%5D\(https://www.youtube.com/watch%3Fv%3DacZHXGAZHls\)) and how it's used to provide an overview of a GitHub project.
-http://googleusercontent.com/youtube_content/16
