@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="My Automation Suite" verbose="1" parallel="methods" thread-count="2">
+    <listeners>
+        <listener class-name="com.automation.framework.report.ExtentReportManager"/>
+    </listeners>
+    <test name="Login and E-commerce Tests">
+        <classes>
+            <class name="com.automation.tests.LoginTest"/>
+            <class name="com.automation.tests.ProductAndCheckoutTests"/>
+        </classes>
+    </test>
+</suite>
