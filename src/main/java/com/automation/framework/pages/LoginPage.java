@@ -2,6 +2,10 @@ package com.automation.framework.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage extends BasePage{
     private final By usernameInput = By.id("user-name");
@@ -23,8 +27,12 @@ public class LoginPage extends BasePage{
 
     public boolean isErrorMessageDisplayed() {
         try {
-            return waitForElement(errorMessage).isDisplayed();
+            // Wait for up to 5 seconds for the error message to be visible
+            new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .until(ExpectedConditions.visibilityOfElementLocated(errorMessage));
+            return true;
         } catch (Exception e) {
+            // Catch any exception and return false, as the element was not found in time
             return false;
         }
     }
