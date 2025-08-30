@@ -17,87 +17,95 @@
 
 -----
 
-## Overview
-
+Overview
 This repository contains a robust, scalable, and maintainable test automation framework designed for web application testing. Built with industry best practices, including the Page Object Model (POM) and TestNG, the framework is designed for easy integration into various CI/CD pipelines. It is highly resilient, able to handle transient issues and dynamic web elements, and supports advanced data management for complex test scenarios.
 
-## Key Features
+Key Features
+Advanced Data Management: Supports flexible, structured test data from JSON files, allowing for complex and nested test scenarios.
 
-  * **Data-Driven Testing:** Supports test data from various sources (e.g., `.xlsx`, `.csv`).
-  * **Cross-Browser Support:** Execute tests on multiple browsers including Chrome, Firefox, and Edge.
-  * **Parallel Execution:** Configurable parallel execution of tests to reduce run time.
-  * **Advanced Reporting:** Generates comprehensive and interactive **Extent Reports** with test case details, screenshots, and logs.
-  * **CI/CD Integration:** Ready for integration with Jenkins, GitHub Actions, or other CI tools.
+Resilient Execution: Automatically retries failed tests to mitigate flakiness and uses a custom Fluent Wait utility to gracefully handle dynamic web elements and transient network delays.
 
-## Technologies
+Cross-Browser Support: Execute tests on multiple browsers including Chrome, Firefox, and Edge.
 
-  * **Language:** Java
-  * **Automation Library:** Selenium WebDriver
-  * **Test Framework:** TestNG
-  * **Build Tool:** Maven
-  * **Reporting:** ExtentReports
-  * **Logging:** Log4j2
-  * **Web Drivers:** WebDriverManager
+Parallel Execution: Configurable parallel execution of tests to reduce run time.
 
-## Getting Started
+Advanced Reporting: Generates comprehensive and interactive Extent Reports with test case details, screenshots, and logs.
 
+CI/CD Integration: Ready for integration with Jenkins, GitHub Actions, or other CI tools.
+
+Technologies
+Language: Java
+
+Automation Library: Selenium WebDriver
+
+Test Framework: TestNG
+
+Build Tool: Maven
+
+Reporting: ExtentReports
+
+Logging: Log4j2
+
+JSON Parsing: Gson
+
+Web Drivers: WebDriverManager
+
+Getting Started
 Follow these instructions to get a copy of the project up and running on your local machine.
 
-### Prerequisites
+Prerequisites
+Java Development Kit (JDK) 11+
 
-  * **Java Development Kit (JDK) 11+**
-  * **Maven 3.6+**
-  * Your preferred IDE (IntelliJ IDEA, Eclipse)
+Maven 3.6+
 
-### Installation
+Your preferred IDE (IntelliJ IDEA, Eclipse)
 
-1.  **Clone the repository:**
-    ```sh
-    git clone https://github.com/PrabodhGhosh/test-automation-engine.git
-    ```
-2.  **Navigate to the project directory:**
-    ```sh
-    cd test-automation-engine
-    ```
-3.  **Build the project:**
-    ```sh
-    mvn clean install
-    ```
+Installation
+Clone the repository:
 
-### How to Run Tests
+git clone [https://github.com/PrabodhGhosh/test-automation-engine.git](https://github.com/PrabodhGhosh/test-automation-engine.git)
 
-  * **Run via TestNG XML:**
-    ```sh
-    mvn test -DsuiteXmlFile=testng.xml
-    ```
-  * **Run via Maven Profile:**
-    ```sh
-    mvn test -P&lt;profile_name&gt;
-    ```
-    (You will need to define your profiles in `pom.xml`)
+Navigate to the project directory:
 
-## Project Structure
+cd test-automation-engine
 
+Build the project:
+
+mvn clean install
+
+How to Run Tests
+Run via TestNG XML:
+
+mvn test -DsuiteXmlFile=testng.xml
+
+Run via Maven Profile:
+
+mvn test -P<profile_name>
+
+(You will need to define your profiles in pom.xml)
+
+Project Structure
 A brief overview of the project directory.
 
-  * `src/main/java`: Contains core framework classes, utilities, and base pages.
-  * `src/test/java`: Contains test classes and Page Object Model classes.
-  * `src/test/resources`: Holds configuration files (`log4j2.xml`, `config.properties`) and test data.
-  * `pom.xml`: Maven configuration file with all dependencies.
-  * `testng.xml`: TestNG suite file for running tests.
+src/main/java: Contains core framework classes, utilities, and base pages.
 
-## Reports and Logs
+src/test/java: Contains test classes and Page Object Model classes.
 
-After a test run, the generated reports can be found in the `test-output` directory:
+src/test/resources: Holds configuration files (log4j2.xml, config.properties) and test data (.json files).
 
-  * **Extent Report:** `test-output/ExtentReport.html`
+pom.xml: Maven configuration file with all dependencies.
 
-## Contributing
+testng.xml: TestNG suite file for running tests.
 
+Reports and Logs
+After a test run, the generated reports can be found in the test-output directory:
+
+Extent Report: test-output/ExtentReport.html
+
+Contributing
 Feel free to open issues or submit pull requests. All contributions are welcome.
 
-## Contact
-
-Prabodh Ghosh - `ghosh.prabodh@gmail.com`
+Contact
+Prabodh Ghosh - ghosh.prabodh@gmail.com
 
 -----
