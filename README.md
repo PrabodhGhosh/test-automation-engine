@@ -6,15 +6,14 @@
 
 ## Table of Contents
 
-  * [Overview](https://www.google.com/search?q=%23overview)
-  * [Key Features](https://www.google.com/search?q=%23key-features)
-  * [Technologies](https://www.google.com/search?q=%23technologies)
-  * [Getting Started](https://www.google.com/search?q=%23getting-started)
-  * [Project Structure](https://www.google.com/search?q=%23project-structure)
-  * [Reports and Logs](https://www.google.com/search?q=%23reports-and-logs)
-  * [Contributing](https://www.google.com/search?q=%23contributing)
-  * [Contact](https://www.google.com/search?q=%23contact)
-  * [License](https://www.google.com/search?q=%23license)
+ * [Overview](#overview)
+* [Key Features](#key-features)
+* [Technologies](#technologies)
+* [Getting Started](#getting-started)
+* [Project Structure](#project-structure)
+* [Reports and Logs](#reports-and-logs)
+* [Contributing](#contributing)
+* [Contact](#contact)
 
 -----
 
