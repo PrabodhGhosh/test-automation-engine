@@ -73,7 +73,6 @@ Clone the repository:
 git clone 
 
 https://www.google.com/search?q=https://github.com/PrabodhGhosh/test−automation−engine.git
-(https://www.google.com/search?q=https://github.com/PrabodhGhosh/test-automation-engine.git)
 
 ```
 
