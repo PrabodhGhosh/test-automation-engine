@@ -14,7 +14,7 @@ public class InventoryPage extends BasePage{
     }
     public boolean isPageLoaded() {
         try {
-            return waitForElement(inventoryItem).isDisplayed();
+            return waitForElementVisibility(inventoryItem).isDisplayed();
         } catch (Exception e) {
             return false;
         }
@@ -25,7 +25,7 @@ public class InventoryPage extends BasePage{
     }
 
     public String getShoppingCartCount() {
-        return waitForElement(shoppingCartBadge).getText();
+        return waitForElementVisibility(shoppingCartBadge).getText();
     }
 
     public void clickShoppingCart() {
