@@ -70,9 +70,7 @@ Your preferred IDE (IntelliJ IDEA, Eclipse)
 Clone the repository:
 
 ```
-git clone 
-
-https://www.google.com/search?q=https://github.com/PrabodhGhosh/test−automation−engine.git
+git clone https://github.com/PrabodhGhosh/test-automation-engine
 
 ```
 
