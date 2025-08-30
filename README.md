@@ -1,4 +1,4 @@
------
+  -----
 
 # Test Automation Engine
 
@@ -139,9 +139,8 @@ Feel free to open issues or submit pull requests. All contributions are welcome.
 Prabodh Ghosh - 
 
 ghosh.prabodh@gmail.com
-(mailto:ghosh.prabodh@gmail.com)
 
 Project Link: 
 
-https://www.google.com/search?q=https://github.com/PrabodhGhosh/test−automation−engine
+https://github.com/PrabodhGhosh/test-automation-engine
 -----
