@@ -11,7 +11,7 @@ public class CheckoutCompletePage extends BasePage{
     }
 
     public String getCompleteMessage() {
-        return waitForElement(completeHeader).getText();
+        return waitForElementVisibility(completeHeader).getText();
     }
 
 }
