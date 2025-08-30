@@ -1,5 +1,6 @@
 package com.automation.framework.pages;
 
+import com.automation.framework.helper.WaitHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,8 +23,7 @@ public abstract class BasePage {
 
 
     protected WebElement waitForElementVisibility(By locator) {
-        return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_SECONDS))
-                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return WaitHelper.fluentWait(driver, locator);
     }
 
 

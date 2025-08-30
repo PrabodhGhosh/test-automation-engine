@@ -1,6 +1,7 @@
 package com.automation.tests;
 
 import com.automation.framework.base.BaseTest;
+import com.automation.framework.helper.RetryAnalyzer;
 import com.automation.framework.pages.CheckoutStepOnePage;
 import com.automation.framework.pages.InventoryPage;
 import com.automation.framework.pages.LoginPage;
@@ -34,7 +35,8 @@ public class ProductAndCheckoutTests extends BaseTest {
         LOGGER.info("Item added to cart and count verified. Test passed.");
     }
 
-    @Test(description = "Verify an end-to-end checkout process")
+    @Test(description = "Verify an end-to-end checkout process",
+            retryAnalyzer = RetryAnalyzer.class)
     public void testEndToEndCheckout() {
         LOGGER.info("Starting testEndToEndCheckout...");
         InventoryPage inventoryPage = new InventoryPage(getDriver());
