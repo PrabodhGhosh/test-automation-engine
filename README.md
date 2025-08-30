@@ -19,7 +19,7 @@
 
 ## Overview
 
-This repository contains a robust, scalable, and maintainable test automation framework designed for web application testing. The framework is built with industry best practices, including the **Page Object Model (POM)**, and is designed for easy integration with various CI/CD pipelines.
+This repository contains a robust, scalable, and maintainable test automation framework designed for web application testing. Built with industry best practices, including the Page Object Model (POM) and TestNG, the framework is designed for easy integration into various CI/CD pipelines. It is highly resilient, able to handle transient issues and dynamic web elements, and supports advanced data management for complex test scenarios.
 
 ## Key Features
 
