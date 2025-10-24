@@ -18,9 +18,11 @@ public class BaseTest {
     public void setUp() {
         LOGGER.info("Setting up WebDriver for the test...");
         boolean headless = Boolean.parseBoolean(ConfigManager.getProperty("headless"));
+        String executionMode = ConfigManager.getProperty("execution_mode");
+        String gridURL = ConfigManager.getProperty("grid_url");
 
         try {
-            driver.set(DriverFactory.getDriver("chrome", headless));
+            driver.set(DriverFactory.getDriver("chrome", headless,executionMode,gridURL));
         } catch (Exception e) {
             LOGGER.error("The browser is not supported");
             throw new RuntimeException("Could not initialize WebDriver.", e);
