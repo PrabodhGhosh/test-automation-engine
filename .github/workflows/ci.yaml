@@ -1,5 +1,5 @@
 # .github/workflows/ci.yml
-name: SDET Basic CI Pipeline
+name: SDET CI with Selenium Grid (Docker Services)
 
 on:
   push:
@@ -9,41 +9,65 @@ on:
 
 jobs:
   build_and_test:
-    # Use the GitHub-hosted runner, 'ubuntu-latest' is a common choice.
-    runs-on: ubuntu-latest 
-    
-    # Use services to start the Selenium Hub and Chrome Node as Docker containers
+    # Use the OS variable from the strategy matrix
+    runs-on: ${{ matrix.os }} 
+
+    strategy:
+      # Define combinations to test against (Matrix Build Strategy)
+      matrix:
+        java-version: [ '11', '17' ] 
+        os: [ ubuntu-latest ] 
+
+    # 👇 SELENIUM GRID DOCKER SERVICES SETUP (Fixes Connection Error)
     services:
-      # 1. Start the Selenium Hub
       selenium-hub:
-        image: selenium/hub:4.20.0 # Use a stable or latest version
+        image: selenium/hub:4.20.0 # Selenium Hub
         ports:
-          # Map the internal container port to the runner's port 4444
-          - 4444:4444 
-      # 2. Start the Chrome Node (which registers with the Hub)
+          - 4444:4444 # Map container port 4444 to runner port 4444
       chrome-node:
-        image: selenium/node-chrome:4.20.0
-        # Link the Chrome Node to the Hub using the service name (selenium-hub)
+        image: selenium/node-chrome:4.20.0 # Chrome Node
+        # Link the node to the hub using the service name
         environment:
           - SE_EVENT_BUS_HOST=selenium-hub
           - SE_EVENT_BUS_PUBLISH_PORT=4442
           - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-        # Ensure it waits until the hub is up
-        depends-on: selenium-hub
+        depends-on: selenium-hub 
+    # 👆 END OF SELENIUM GRID SETUP
 
     steps:
-      # Step 1: Checkout the code
-      - name: Checkout Repository
+      # Step 1: Clone the repository code
+      - name: Checkout Repository Code
         uses: actions/checkout@v4 
 
-      # Step 2: Set up Java environment (Adjust for your language/stack, e.g., setup-node)
-      - name: Set up JDK 17 (Maven prerequisite)
+      # Step 2: Setup Java Environment with Caching
+      - name: Set up JDK ${{ matrix.java-version }} Environment (Cache Maven)
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: ${{ matrix.java-version }}
           distribution: 'temurin'
-          cache: 'maven'
+          # Dependency Caching feature
+          cache: 'maven' 
 
-      # Step 3: Run the tests (Using Maven 'verify' which includes compiling and running tests)
-      - name: Run Unit and Integration Tests
-        run: mvn clean verify
+      # Step 3: Run the tests
+      - name: Build and Execute Tests
+        # CRUCIAL: Pass the Grid URL using the service name 'selenium-hub'
+        run: mvn clean verify -Dselenium.url="http://selenium-hub:4444/wd/hub"
+
+      # Step 4: Publish Test Results (SDET Practice: Test Reporting)
+      - name: Publish JUnit XML Results
+        if: always() 
+        uses: dorny/test-reporter@v1
+        with:
+          name: Unit/Integration Test Report
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+
+      # Step 5: Upload Artifacts (SDET Practice: Artifact Upload)
+      - name: Upload Failure Artifacts
+        if: failure() 
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-failure-logs-and-assets
+          path: |
+            target/logs/
+            target/screenshots/
