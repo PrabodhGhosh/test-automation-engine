@@ -11,6 +11,25 @@ jobs:
   build_and_test:
     # Use the GitHub-hosted runner, 'ubuntu-latest' is a common choice.
     runs-on: ubuntu-latest 
+    
+    # Use services to start the Selenium Hub and Chrome Node as Docker containers
+    services:
+      # 1. Start the Selenium Hub
+      selenium-hub:
+        image: selenium/hub:4.20.0 # Use a stable or latest version
+        ports:
+          # Map the internal container port to the runner's port 4444
+          - 4444:4444 
+      # 2. Start the Chrome Node (which registers with the Hub)
+      chrome-node:
+        image: selenium/node-chrome:4.20.0
+        # Link the Chrome Node to the Hub using the service name (selenium-hub)
+        environment:
+          - SE_EVENT_BUS_HOST=selenium-hub
+          - SE_EVENT_BUS_PUBLISH_PORT=4442
+          - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+        # Ensure it waits until the hub is up
+        depends-on: selenium-hub
 
     steps:
       # Step 1: Checkout the code
