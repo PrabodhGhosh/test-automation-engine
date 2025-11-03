@@ -1,5 +1,5 @@
-# .github/workflows/ci.yml
-name: SDET CI with Selenium Grid (Docker Services)
+.github/workflows/ci.yml
+name: 🧪 SDET CI with Selenium Grid (Docker Services)
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         java-version: [ '11', '17' ] 
         os: [ ubuntu-latest ] 
 
-    # 👇 SELENIUM GRID DOCKER SERVICES SETUP (Fixes Connection Error)
+    # 👇 SELENIUM GRID DOCKER SERVICES SETUP (FIXED)
     services:
       selenium-hub:
         image: selenium/hub:4.20.0 # Selenium Hub
@@ -26,12 +26,12 @@ jobs:
           - 4444:4444 # Map container port 4444 to runner port 4444
       chrome-node:
         image: selenium/node-chrome:4.20.0 # Chrome Node
-        # Link the node to the hub using the service name
-        environment:
-          - SE_EVENT_BUS_HOST=selenium-hub
-          - SE_EVENT_BUS_PUBLISH_PORT=4442
-          - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-        depends-on: selenium-hub 
+        # 👇 FIX 1: Changed 'environment' to 'env' and updated format
+        env:
+          SE_EVENT_BUS_HOST: selenium-hub
+          SE_EVENT_BUS_PUBLISH_PORT: 4442
+          SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+        # 👆 FIX 2: Removed 'depends-on' as it is not a valid key here.
     # 👆 END OF SELENIUM GRID SETUP
 
     steps:
