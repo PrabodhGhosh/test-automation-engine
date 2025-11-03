@@ -64,13 +64,15 @@ jobs:
 
       # Step 4: Publish Test Results (SDET Practice: Test Reporting)
       - name: Publish JUnit XML Results
-        if: always() 
+        if: always()  
         uses: dorny/test-reporter@v1
         with:
           name: Unit/Integration Test Report
           path: |
-            target/surefire-reports/*.xml
-            target/failsafe-reports/*.xml
+            # Target the individual JUnit reports within the subfolder:
+            target/surefire-reports/junitreports/*.xml
+            # Target the main aggregate JUnit report (optional but safe):
+            target/surefire-reports/TEST-TestSuite.xml
           reporter: java-junit
 
       # Step 5: Upload Artifacts (SDET Practice: Artifact Upload)
