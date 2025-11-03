@@ -51,6 +51,16 @@ jobs:
       - name: Build and Execute Tests
         # CRUCIAL: Pass the Grid URL using the service name 'selenium-hub'
         run: mvn clean verify -Dselenium.url="http://selenium-hub:4444/wd/hub"
+        
+        # New Debugging Step: Check contents of report directories
+      - name: Debug Report Directory Contents
+        run: |
+          echo "Listing files in surefire reports:"
+          ls -R target/surefire-reports/ || echo "surefire-reports directory not found or empty."
+          echo "Listing files in failsafe reports:"
+          ls -R target/failsafe-reports/ || echo "failsafe-reports directory not found or empty."
+          echo "Current working directory:"
+          pwd
 
       # Step 4: Publish Test Results (SDET Practice: Test Reporting)
       - name: Publish JUnit XML Results
