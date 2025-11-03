@@ -27,13 +27,13 @@ Built with industry best practices, including the Page Object Model (POM) and Te
 
 **Resilient Execution:** Automatically retries failed tests to mitigate flakiness and uses a custom Fluent Wait utility to gracefully handle dynamic web elements and transient network delays.
 
-**Cross-Browser Support:** Execute tests on multiple browsers including Chrome, Firefox, and Edge.
+**Containerized Cross-Browser Execution (Selenium Grid)** Achieves comprehensive coverage by executing tests across Chrome, Firefox, and Edge. The framework is architected to run via Dockerized Selenium Grid, decoupling browser execution from the CI environment.
 
-**Parallel Execution:** Configurable parallel execution of tests to significantly reduce run time.
+**Optimized Parallel Execution:** Configurable TestNG settings enable concurrent execution of tests within the Selenium Grid, significantly reducing overall run time and maximizing resource utilization.
 
 **Advanced Reporting:** Generates comprehensive and interactive Extent Reports with test case details, screenshots, and logs.
 
-**CI/CD Integration:** Ready for integration with Jenkins, GitHub Actions, or other CI tools.
+**CI/CD Pipeline Ready:** Fully integrated and tested with Jenkins (and ready for GitHub Actions), ensuring seamless, automated test execution as part of a continuous integration and deployment workflow.
 
 ### Technologies
 
