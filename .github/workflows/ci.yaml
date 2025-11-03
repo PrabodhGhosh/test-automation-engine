@@ -59,8 +59,8 @@ jobs:
         with:
           name: Unit/Integration Test Report
           path: |
-          target/surefire-reports/*.xml
-          target/failsafe-reports/*.xml
+            target/surefire-reports/*.xml
+            target/failsafe-reports/*.xml
           reporter: java-junit
 
       # Step 5: Upload Artifacts (SDET Practice: Artifact Upload)
