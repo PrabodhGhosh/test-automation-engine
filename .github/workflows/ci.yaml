@@ -1,4 +1,3 @@
-.github/workflows/ci.yml
 name: 🧪 SDET CI with Selenium Grid (Docker Services)
 
 on:
